@@ -126,8 +126,8 @@ def save_statistics(df: pd.DataFrame, output_path: Path) -> None:
         f.write(f"Shape: {df.shape[0]} rows, {df.shape[1]} columns\n\n")
         f.write("DESCRIPTIVE STATISTICS:\n")
         f.write(df.describe().round(4).to_string())
-        f.write("\n\nTARGET VALUE COUNTS:\n")
         if "target" in df.columns:
+            f.write("\n\nTARGET VALUE COUNTS:\n")
             f.write(df["target"].value_counts().sort_index().to_string())
         f.write("\n")
     print(f"Summary saved to: {output_path}")
